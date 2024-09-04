@@ -14,6 +14,11 @@
             padding: 10px;
         }
 
+        div {
+            margin: 0px;
+            padding: 0px;
+        }
+
         a {
             text-decoration: none;
             color: #f7efd9;
@@ -27,6 +32,23 @@
             text-decoration: underline;
         }
     </style>
+
+    <script>
+
+        function showHide (e) {
+
+            var folder = document.getElementById(e);
+            var icon = document.getElementById(`icon-${e}`);
+            if (folder.style.display === "none") {
+                folder.style.display = "block";
+                icon.style.display = "none";
+            } else {
+                folder.style.display = "none";
+                icon.style.display = "inline";
+            }
+        }
+
+    </script>
 
 </head>
 
@@ -49,11 +71,13 @@
         $files = scandir($dir);
 
         // Exclude some files
-        $excludedFilenames = array('.', '..', 'gabesFileLister.php', 'gabesFileListerMin.php', 'files.php', 'index.php','.DS_Store', '.git');
+        $excludedFilenames = array('.', '..', 'gabesFileLister.php', 'files.php', 'index.php','.DS_Store', '.git');
 
         // Remove excluded files
         $files = array_diff($files, $excludedFilenames);
 
+
+        // Check if the root directory is empty, if so then show a message
         if (count($files) == 0 && $indent == 0) {
             echo "<br />No files found in this directory.";
             return;
@@ -65,11 +89,18 @@
             // Get the full path of the file
             $filePath = $dir . '/' . $file;
 
+
+            // Replace all instances of . / \ with dashes
+            $dirID = "dir" . preg_replace('/[.\/\\ ]/', '-', $filePath);
+
             // Initialize variables
             $newPrefix = "";
             $newRepitition = $repitition;
 
+            // If not in the root directory then generate the lines
             if ($indent > 0) {
+
+                // Check if the current file is the last file
                 if ($file == end($files)) {
                     $newPrefix =  "└─ "; // Last file in the list
                     $newRepitition = $repitition . (is_dir($filePath) ? "&nbsp;&nbsp;&nbsp;&nbsp;" : "│&nbsp;&nbsp;&nbsp;"); // Indentation for directories
@@ -80,15 +111,25 @@
             }
 
 
+
             // Check if the current file is a directory
             if (is_dir($filePath)) {
 
+                // Padding so folders aren't touching
                 echo ($indent == 0) ? "<br />" : $repitition . "│&nbsp;&nbsp;&nbsp; <br/>";
 
-                echo $repitition . $newPrefix . $file .  ' <br/>';
+                // Folder name + show/hide button
+                echo $repitition . $newPrefix . '<span onClick="showHide(\'' . $dirID . '\')">' . $file . '<span style="display:none"id="icon-' . $dirID . '"> (-)</span></span><br/><div id="' . $dirID . '">';
 
+                // Recursively call the function
                 listFiles($filePath, $indent + 1, $newRepitition);
-            } else {
+
+                echo '</div>';
+            } 
+            // If the current file is a file
+            else {
+
+                // File name
                 echo $repitition . $newPrefix .  '<a href="' . $filePath . '">' . $file . '</a> <br/>';
             }
         }
@@ -100,7 +141,7 @@
     ?>
 
     <br /><br />-------<br />
-    Displayed with <a href="https://github.com/gabrielchantayan/gabesFileLister">gabesFileLister</a> v1.2
+    Displayed with <a href="https://github.com/gabrielchantayan/gabesFileLister">gabesFileLister</a> v1.3
     <br><br>
 
 
