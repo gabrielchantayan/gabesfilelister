@@ -2,13 +2,18 @@
 
 ![example image](img/head.png)
 
-![v1.2](https://img.shields.io/badge/Version-1.2-blue)     [![name](https://img.shields.io/badge/Changelog-brightgreen)](CHANGELOG.MD)
+![v1.2](https://img.shields.io/badge/Version-1.3-blue)     [![name](https://img.shields.io/badge/Changelog-brightgreen)](CHANGELOG.MD)
 
 ## What is it?
 A simple way to make a downloadable file tree. Just drag the one single PHP file to the directory of your choice and voila!
 
+## Features
+- Generates a tree of all your files with clickable links to download
+- Collapsable filetree to save on screen real estate.
+- Ultra-lightweight
+
 ## Troubleshooting
-### Some of my files arent showing up!
+### Some of my files arent showing up!x
 Gabe's file lister blocks the following files from appearing in the tree: `gabesFileLister.php` `gabesFileListerMin.php` `.DS_Store` `index.php` `files.php` `.git`
 
 ### Can I add files to exclude?
@@ -31,3 +36,6 @@ Having a config to modify the look, feel, and behavior of a project would be bet
 Short answer: I thought it'd be funny.
 
 Long answer: I wanted this to be just one file. No dependencies, no finicking around with APIs and client-side rendering and libraries and installing new software and so on and so forth. Just one file. Drag and drop in a directory and forget about it. Most webservers aren't going to deal with server-side Node.JS, and most webservers can easily deal with PHP. PHP is the only language I was able to do this in and cover 99.999% of use cases. 
+
+### Why Minified PHP? Isn't there no benefit?
+You're right in that there is zero performance benefit to minifying the PHP. The benefit comes from size, where the minified version is smaller than this README. Granted, the difference between the minified and full PHP files are minimal, it is still fun to try to minify.

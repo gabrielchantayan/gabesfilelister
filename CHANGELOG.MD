@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.3
+2024.09.04
+```
++ Added folder collapsing
+```
+
 ## v1.2
 2024.09.04
 ```
