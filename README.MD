@@ -9,7 +9,7 @@ A simple way to make a downloadable file tree. Just drag the one single PHP file
 
 ## Troubleshooting
 ### Some of my files arent showing up!
-Gabe's file lister blocks the following files from appearing in the tree: `gabesFileLister.php` `gabesFileListerMin.php` `.DS_Store` `index.php` `files.php`
+Gabe's file lister blocks the following files from appearing in the tree: `gabesFileLister.php` `gabesFileListerMin.php` `.DS_Store` `index.php` `files.php` `.git`
 
 ### Can I add files to exclude?
 Yes! Just add the filename to the array here:
