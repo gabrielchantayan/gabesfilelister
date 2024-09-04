@@ -49,12 +49,12 @@
         $files = scandir($dir);
 
         // Exclude some files
-        $excludedFilenames = array('.', '..', 'gabesFileLister.php', 'gabesFileListerMin.php', 'files.php', 'index.php','.DS_Store');
+        $excludedFilenames = array('.', '..', 'gabesFileLister.php', 'gabesFileListerMin.php', 'files.php', 'index.php','.DS_Store', '.git');
 
         // Remove excluded files
         $files = array_diff($files, $excludedFilenames);
 
-        if (count($files) == 0) {
+        if (count($files) == 0 && $indent == 0) {
             echo "<br />No files found in this directory.";
             return;
         }
@@ -100,7 +100,7 @@
     ?>
 
     <br /><br />-------<br />
-    Displayed with <a href="https://github.com/gabrielchantayan/gabesFileLister">gabesFileLister</a> v1.1
+    Displayed with <a href="https://github.com/gabrielchantayan/gabesFileLister">gabesFileLister</a> v1.2
     <br><br>
 
 
