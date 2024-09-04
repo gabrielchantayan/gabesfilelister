@@ -14,7 +14,10 @@ Gabe's file lister blocks the following files from appearing in the tree: `gabes
 ### Can I add files to exclude?
 Yes! Just add the filename to the array here:
 
-![Line 52 buddy](img/exclude.png)
+![Line 52, buddy](img/exclude.png)
 
 ### Can I change X?
 Yes! This is open-source! Change it however you want, I'm not the boss of you.
+
+### Why is X hardcoded? Wouldn't a config be better?
+A config would be better in most cases. My goal was to create a super small, *single-file* solution for creating a downloadable directory lister. If you want to change anything, the file is simple enough that you can easily find and modify whatever setting you want to change.
