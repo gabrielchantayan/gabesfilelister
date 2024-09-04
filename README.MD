@@ -1,6 +1,6 @@
 # Gabe's file lister
 
-![example image](img/image.png)
+![example image](img/head.png)
 
 ## What is it?
 A simple way to make a downloadable file tree. Just drag the one single PHP file to the directory of your choice and voila!
