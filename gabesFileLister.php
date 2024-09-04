@@ -49,7 +49,7 @@
         $files = scandir($dir);
 
         // Exclude some files
-        $excludedFilenames = array('.', '..', 'gabesFileLister.php', 'gabesFileListerMin.php', '.DS_Store');
+        $excludedFilenames = array('.', '..', 'gabesFileLister.php', 'gabesFileListerMin.php', 'files.php', 'index.php','.DS_Store');
 
         // Remove excluded files
         $files = array_diff($files, $excludedFilenames);
@@ -100,7 +100,7 @@
     ?>
 
     <br /><br />-------<br />
-    Displayed with <a href="https://github.com/gabrielchantayan/gabesFileLister">gabesFileLister</a>
+    Displayed with <a href="https://github.com/gabrielchantayan/gabesFileLister">gabesFileLister</a> v1.1
     <br><br>
 
 
