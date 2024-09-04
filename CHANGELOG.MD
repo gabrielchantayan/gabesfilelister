@@ -4,7 +4,8 @@
 2024.09.04
 ```
 + Added `.git` to the exclusions
-o "No files in this directory" message will now only show if the root directory is empty. Before it would show in any empty directory. May reverse this change.
+o "No files in this directory" message will now only show if the root directory is empty.
+   Before it would show in any empty directory. May reverse this change.
 ```
 
 ## v1.1
