@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.3.1
+2024.09.04
+```
+o Fixed file exclusions
+```
+
 ## v1.3
 2024.09.04
 ```

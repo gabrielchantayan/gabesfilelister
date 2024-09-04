@@ -2,7 +2,7 @@
 
 ![example image](img/head.png)
 
-![v1.2](https://img.shields.io/badge/Version-1.3-blue)     [![name](https://img.shields.io/badge/Changelog-brightgreen)](CHANGELOG.MD)
+![v1.2](https://img.shields.io/badge/Version-1.3.1-blue)     [![name](https://img.shields.io/badge/Changelog-brightgreen)](CHANGELOG.MD)
 
 ## What is it?
 A simple way to make a downloadable file tree. Just drag the one single PHP file to the directory of your choice and voila!
