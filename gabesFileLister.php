@@ -31,11 +31,14 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .folderName {
+            color: #f7db9e !important;
+        }
     </style>
 
     <script>
-
-        function showHide (e) {
+        function showHide(e) {
 
             var folder = document.getElementById(e);
             var icon = document.getElementById(`icon-${e}`);
@@ -47,7 +50,6 @@
                 icon.style.display = "inline";
             }
         }
-
     </script>
 
 </head>
@@ -71,10 +73,16 @@
         $files = scandir($dir);
 
         // Exclude some files
-        $excludedFilenames = array('.', '..', 'gabesFileLister.php', 'gabesFileListerMin.php', 'files.php', 'index.php','.DS_Store', '.git');
+        $excludedFilenames = array('.', '..', 'gabesFileLister.php', 'gabesFileListerMin.php', 'files.php', 'index.php', '.DS_Store', '.git');
 
         // Remove excluded files
         $files = array_diff($files, $excludedFilenames);
+
+
+        // Sort the files by if they are directories or not, using is_dir($filePath)
+        usort($files, function ($a, $b) {
+            return is_dir($b) <=> is_dir($a);
+        });
 
 
         // Check if the root directory is empty, if so then show a message
@@ -119,13 +127,13 @@
                 echo ($indent == 0) ? "<br />" : $repitition . "│&nbsp;&nbsp;&nbsp; <br/>";
 
                 // Folder name + show/hide button
-                echo $repitition . $newPrefix . '<span onClick="showHide(\'' . $dirID . '\')">' . $file . '<span style="display:none"id="icon-' . $dirID . '"> (-)</span></span><br/><div id="' . $dirID . '">';
+                echo $repitition . $newPrefix . '<a href="#link-' . $dirID . '" class="folderName" id="link-' . $dirID . '" onClick="showHide(\'' . $dirID . '\')">' . $file . '<span style="display:none"id="icon-' . $dirID . '"> (-)</span></a><br/><div id="' . $dirID . '">';
 
                 // Recursively call the function
                 listFiles($filePath, $indent + 1, $newRepitition);
 
                 echo '</div>';
-            } 
+            }
             // If the current file is a file
             else {
 
@@ -141,7 +149,7 @@
     ?>
 
     <br /><br />-------<br />
-    Displayed with <a href="https://github.com/gabrielchantayan/gabesFileLister">gabesFileLister</a> v1.3.1
+    Displayed with <a href="https://github.com/gabrielchantayan/gabesFileLister">gabesFileLister</a> v1.4
     <br><br>
 
 

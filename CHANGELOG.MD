@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.4
+2024.09.07
+```
++ Now sorts folders on top, files on bottom
++ Folders can now be linked to using URI fragments
+   (Right click to share a direct link to them)
+o Technical change, folder names are now <a> instead of <span>
+```
+
 ## v1.3.1
 2024.09.04
 ```
